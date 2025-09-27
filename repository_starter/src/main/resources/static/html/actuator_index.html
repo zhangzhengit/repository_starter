@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<style type="text/css">
+body {
+	background-color: #81D8D0;
+	margin: 4px;
+	padding-top: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 8px;
+	border: 1px;
+}
+
+p {
+	color: gray;
+	font-size: 12px;
+}
+
+li {
+	list-style-type: none;
+	padding: 3px;
+	margin: 3px;
+	display: inline-block;
+	border: 1px solid gray;
+	background-color: pink;
+	box-shadow: 8px 8px 16px 6px rgba(0, 0, 0.1, 0.5);
+}
+
+a {
+	font-size: 18px;
+	color: white
+}
+
+a:hover {
+/* 	background-color: SkyBlue; */
+	color: SkyBlue;
+}
+
+a.beian {
+	font-size: 20px;
+	color: white
+}
+
+div.page {
+	background-color: #D1DFD0;
+	border: 3px solid gray;
+	box-shadow: 8px 8px 16px 6px rgba(0, 0, 0.1, 0.8);
+}
+
+div.daohang {
+	display: block;
+	height: 5%;
+}
+
+div.content {
+	display: block;
+	padding-top: 1%;
+}
+
+div.daohang p {
+	display: inline;
+}
+
+p.left {
+	float: right;
+}
+
+button {
+	background-color: pink;
+	border: 2px solid gray;;
+	width: 100px;
+	height: 30px;
+	color: white;
+	padding: 4px 3px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+input {
+	height: 30px;
+	width: 200px;
+}
+
+#rcorners1 {
+	border-radius: 8px;
+	border: 1px solid #73ADFF;
+	margin:4px;
+	padding: 4px;
+	/*   width: 200px; */
+	/*   height: 150px;   */
+}
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SQL执行记录</title>
+</head>
+
+<body>
+
+	<div class="daohang">
+		<p>
+			<a href="/repository/admin" target="_blank">SQL执行记录</a>
+		</p>
+	</div>
+
+	<div class="content">
+		<table border="1px">
+			<td>序号</td>
+			<td>记录ID</td>
+			<td>ZRepository名称</td>
+			<td>method名</td>
+			<td>table名</td>
+			<td>耗时(毫秒)</td>
+			<td>SQL</td>
+			<td>SQL参数值</td>
+			<#list list as aa> 
+				<tr>
+					<td>${aa_index+1}</td>
+					<td>${aa.id}</td>
+					<td>${aa.zrSubClassName}</td>
+					<td>${aa.methodName}</td>
+					<td>${aa.tableName}</td>
+					<td>${aa.timeConsuming}</td>
+					<td>
+						<#if aa.sql??>
+							<#if aa.sql?length gt 50>
+							    ${aa.sql?substring(0, 50)}
+							    .....
+							  <#else>
+							    ${aa.sql}
+							  </#if>
+						</#if>
+					</td>
+					<td>
+						<#if aa.value??>
+							${aa.value}
+						</#if>
+					</td>
+				</tr>
+			</#list>
+		</table>
+	</div>
+	
+	<hr/>
+
+
+	<div class="page">
+		<p style="padding-left: 50px; font-size: 20px">
+			当前第${number}/${totalPages}页 | 当前页有${numberOfElements}条 | 每页显示${size}条
+			| 总共${totalElements}条</p>
+
+		<p style="padding-left: 50px; font-size: 20px">
+
+			<a href="/repository/admin?pn=1&ps=${size}">首页  </a>
+
+			<#if number gt 1> <a href="/repository/admin?pn=${number-1}&ps=${size}">上一页</a>
+			<#else> <!-- 				(上一页了) --></#if>
+
+			<#if number lt totalPages> <a
+				href="/repository/admin?pn=${number+1}&ps=${size}">下一页</a> <#else> <!--(没有下一页了) --></#if>
+
+			<a href="/repository/admin?pn=${totalPages}&ps=${size}">   尾页</a>
+		</p>
+	</div>
+	
+</body>
+
+</html>
