@@ -6,17 +6,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.1</version>
+		<version>3.2.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.vo</groupId>
 	<artifactId>repository_starter</artifactId>
-	<version>1.0.0-SNAPSHOT-jdk8</version>
+	<version>1.0.0-SNAPSHOT-jdk21</version>
 	<name>repository_starter</name>
 	<description>repository_starter</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>21</java.version>
 	</properties>
 
 	<dependencies>
@@ -24,13 +24,13 @@
 		<dependency>
 			<groupId>com.vo</groupId>
 			<artifactId>sb_zrepository</artifactId>
-			<version>1.0.0-SNAPSHOT-jdk8</version>
+			<version>1.0.0-SNAPSHOT-jdk21</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.vo</groupId>
 			<artifactId>zframework_core</artifactId>
-			<version>1.0.0-SNAPSHOT-jdk8</version>
+			<version>1.0.0-SNAPSHOT-jdk21</version>
 		</dependency>
 
 		<dependency>
@@ -38,11 +38,6 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -52,6 +47,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 
 				<configuration>
+
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -59,6 +55,8 @@
 						</exclude>
 					</excludes>
 					<classifier>execute</classifier>
+					<source>21</source>
+					<target>21</target>
 				</configuration>
 
 			</plugin>
