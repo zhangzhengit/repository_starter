@@ -6,9 +6,7 @@ import com.vo.ZRWrapper;
 import com.vo.anno.ZAutowired;
 import com.vo.anno.ZController;
 import com.vo.core.Page;
-import com.vo.core.ZRequest;
 import com.vo.core.ZResponse;
-import com.vo.http.ZHtml;
 import com.vo.http.ZRequestMapping;
 import com.vo.http.ZRequestParam;
 import com.vo.template.ZModel;
@@ -27,9 +25,9 @@ public class API {
 
 	@ZAutowired
 	SqlInvocationLogsRepository sqlInvocationLogsRepository;
-	
+
 	@ZRequestMapping(mapping = { "/repositorylogin" })
-	public void login(ZResponse response) {
+	public void login(final ZResponse response) {
 		// FIXME 2025年8月25日 下午6:02:04 zhangzhen: 根据AdminConfigurationProperties 配置项来登录和过期token
 		response.cookie("token", "OK-登录了-这是随手写的测试信息");
 	}
@@ -41,7 +39,6 @@ public class API {
 	 * @return
 	 */
 	@ZRequestMapping(mapping = { "/repository/admin" })
-	@ZHtml
 	public String index(final ZModel model, @ZRequestParam(defaultValue = "1") final Integer pn,
 			@ZRequestParam(defaultValue = "10") final Integer ps) {
 		// FIXME 2024年6月1日 下午7:49:47 zhangzhen : 写这里，展示慢SQL等，先写具体功能点
@@ -52,7 +49,7 @@ public class API {
 		final Page<SqlInvocationLogsEntity> page = this.sqlInvocationLogsRepository.page(wrapper, pn, ps);
 
 		final List<SqlInvocationLogsEntity> list = page.getList();
-		
+
 		model.set("list", list);
 
 		model.set("name", "zhagnsan");
@@ -64,7 +61,7 @@ public class API {
 		model.set("size", page.getSize());
 		model.set("totalElements", page.getTotalCount());
 		model.set("numberOfElements", page.getList().size());
-		
+
 		return "html/actuator_index.html";
 	}
 }
