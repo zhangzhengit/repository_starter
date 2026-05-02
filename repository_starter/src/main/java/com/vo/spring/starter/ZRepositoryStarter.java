@@ -18,19 +18,15 @@ import com.vo.DMLEnum;
 import com.vo.ScanPackage;
 import com.vo.SqlResult;
 import com.vo.ZEntityHandlerScanner;
-import com.vo.ZID;
 import com.vo.ZQuery;
 import com.vo.ZRSqlMap;
 import com.vo.ZRepository;
-import com.vo.anno.ZEntity;
-import com.vo.common.STU;
+import com.vo.cache.CU;
 import com.vo.conn.Env;
 import com.vo.conn.EnvEnum;
 import com.vo.conn.ZRepositoryMain;
 import com.vo.core.ZClass;
 import com.vo.core.ZLog2;
-
-import cn.hutool.core.collection.CollUtil;
 
 /**
  *
@@ -63,7 +59,7 @@ public class ZRepositoryStarter implements InstantiationAwareBeanPostProcessor {
 		
 		if (!this.gZRepository.get()) {
 
-			if (CollUtil.isEmpty(this.scanPackageName)) {
+			if (CU.isEmpty(this.scanPackageName)) {
 				throw new IllegalArgumentException("zrepository.scanPackageName 未配置！");
 			}
 
@@ -111,7 +107,7 @@ public class ZRepositoryStarter implements InstantiationAwareBeanPostProcessor {
 		LOG.info("ZRepositoryStarter开始扫描[{}]的子接口", ZRepository.class.getCanonicalName());
 		// 1 查找ZRepository的子接口
 		final Set<Class<?>> zrSubinterfaceSet = ZRepositoryMain.scanZRepositorySubinterface(packageName);
-		if (CollUtil.isEmpty(zrSubinterfaceSet)) {
+		if (CU.isEmpty(zrSubinterfaceSet)) {
 			LOG.info("ZRepositoryStarter没有[{}]的子接口", ZRepository.class.getCanonicalName());
 			return Collections.emptyMap();
 		}
