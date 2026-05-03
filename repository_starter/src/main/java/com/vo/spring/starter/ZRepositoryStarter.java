@@ -26,7 +26,7 @@ import com.vo.conn.Env;
 import com.vo.conn.EnvEnum;
 import com.vo.conn.ZRepositoryMain;
 import com.vo.core.ZClass;
-import com.vo.core.ZLog2;
+import com.vo.log.core.ZLog2;
 
 /**
  *
