@@ -26,7 +26,7 @@ import com.vo.conn.Env;
 import com.vo.conn.EnvEnum;
 import com.vo.conn.ZRepositoryMain;
 import com.vo.core.ZClass;
-import com.vo.core.ZLog2;
+import com.vo.log.core.ZLog2;
 
 /**
  *
@@ -40,14 +40,14 @@ import com.vo.core.ZLog2;
 public class ZRepositoryStarter implements InstantiationAwareBeanPostProcessor {
 
 	private static final ZLog2 LOG = ZLog2.getInstance();
-	
+
 
 	private final AtomicBoolean gZRepository = new AtomicBoolean(false);
 
 	@Value(value = "${zrepository.scanPackageName}")
 	private Set<String> scanPackageName;
-	
-	
+
+
 	@Value(value = "${repository.actuator.enable:false}")
 	private boolean actuatorEnable;
 
@@ -55,8 +55,8 @@ public class ZRepositoryStarter implements InstantiationAwareBeanPostProcessor {
 	public boolean postProcessAfterInstantiation(final Object bean, final String beanName) throws BeansException {
 
 		Env.ENV = EnvEnum.SPRING;
-		Env.ACTUATOR_ENABLE = actuatorEnable;
-		
+		Env.ACTUATOR_ENABLE = this.actuatorEnable;
+
 		if (!this.gZRepository.get()) {
 
 			if (CU.isEmpty(this.scanPackageName)) {
