@@ -1,14 +1,16 @@
-package com.vo.actuator;
+package com.vo.repository.starter.actuator;
 
 import java.util.List;
 
-import com.vo.ZRWrapper;
 import com.vo.anno.ZAutowired;
 import com.vo.anno.ZController;
-import com.vo.core.Page;
 import com.vo.core.ZResponse;
 import com.vo.http.ZRequestMapping;
 import com.vo.http.ZRequestParam;
+import com.vo.repository.actuator.SqlInvocationLogsEntity;
+import com.vo.repository.actuator.SqlInvocationLogsRepository;
+import com.vo.repository.core.Page;
+import com.vo.repository.core.ZRWrapper;
 import com.vo.template.ZModel;
 
 /**
@@ -25,7 +27,7 @@ public class API {
 
 	@ZAutowired
 	SqlInvocationLogsRepository sqlInvocationLogsRepository;
-	
+
 	@ZRequestMapping(mapping = { "/repositorylogin" })
 	public void login(final ZResponse response) {
 		// FIXME 2025年8月25日 下午6:02:04 zhangzhen: 根据AdminConfigurationProperties 配置项来登录和过期token
@@ -49,7 +51,7 @@ public class API {
 		final Page<SqlInvocationLogsEntity> page = this.sqlInvocationLogsRepository.page(wrapper, pn, ps);
 
 		final List<SqlInvocationLogsEntity> list = page.getList();
-		
+
 		model.set("list", list);
 
 		model.set("name", "zhagnsan");
@@ -61,7 +63,7 @@ public class API {
 		model.set("size", page.getSize());
 		model.set("totalElements", page.getTotalCount());
 		model.set("numberOfElements", page.getList().size());
-		
+
 		return "html/actuator_index.html";
 	}
 }

@@ -1,4 +1,4 @@
-package com.vo.spring.starter;
+package com.vo.repository.starter.spring.actuator;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;

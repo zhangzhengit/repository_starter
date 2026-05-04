@@ -1,15 +1,13 @@
-package com.vo.actuator;
-
-import java.time.LocalDateTime;
+package com.vo.repository.starter.actuator;
 
 import com.vo.anno.ZComponent;
-import com.vo.anno.ZOrder;
 import com.vo.aop.InterceptorParameter;
 import com.vo.core.ContentTypeEnum;
 import com.vo.core.ZRequest;
 import com.vo.core.ZResponse;
 import com.vo.http.HttpStatusEnum;
 import com.vo.http.ZCookie;
+import com.vo.anno.ZOrder;
 import com.vo.scanner.ZHandlerInterceptor;
 
 /**
@@ -17,7 +15,7 @@ import com.vo.scanner.ZHandlerInterceptor;
  *
  * @author zhangzhen
  * @date 2025年8月25日
- * 
+ *
  */
 @ZComponent
 @ZOrder(value = 0)
@@ -29,9 +27,9 @@ public class AcutatorInterceptor implements ZHandlerInterceptor {
 	}
 
 	@Override
-	public boolean preHandle(ZRequest request, ZResponse response, InterceptorParameter interceptorParameter) {
-		
-		ZCookie token = request.getCookie("token");
+	public boolean preHandle(final ZRequest request, final ZResponse response, final InterceptorParameter interceptorParameter) {
+
+		final ZCookie token = request.getCookie("token");
 		if (token == null ) {
 			// FIXME 2025年8月25日 下午5:55:13 zhangzhen: 这只是简单测试，记得login接口更名和加入严谨逻辑，并且此处同步修改
 			response.httpStatus(HttpStatusEnum.HTTP_403.getCode())

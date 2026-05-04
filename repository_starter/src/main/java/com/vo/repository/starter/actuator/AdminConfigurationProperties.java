@@ -1,4 +1,4 @@
-package com.vo.actuator;
+package com.vo.repository.starter.actuator;
 
 import javax.annotation.sql.DataSourceDefinition;
 

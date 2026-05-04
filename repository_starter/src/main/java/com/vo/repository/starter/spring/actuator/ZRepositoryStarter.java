@@ -1,4 +1,4 @@
-package com.vo.spring.starter;
+package com.vo.repository.starter.spring.actuator;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
@@ -14,19 +14,19 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Sets;
-import com.vo.DMLEnum;
-import com.vo.ScanPackage;
-import com.vo.SqlResult;
-import com.vo.ZEntityHandlerScanner;
-import com.vo.ZQuery;
-import com.vo.ZRSqlMap;
-import com.vo.ZRepository;
 import com.vo.cache.CU;
-import com.vo.conn.Env;
-import com.vo.conn.EnvEnum;
-import com.vo.conn.ZRepositoryMain;
 import com.vo.core.ZClass;
 import com.vo.log.core.ZLog2;
+import com.vo.repository.anno.ZQuery;
+import com.vo.repository.conn.Env;
+import com.vo.repository.conn.EnvEnum;
+import com.vo.repository.conn.ZRepositoryMain;
+import com.vo.repository.core.ScanPackage;
+import com.vo.repository.core.SqlResult;
+import com.vo.repository.core.ZEntityHandlerScanner;
+import com.vo.repository.core.ZRSqlMap;
+import com.vo.repository.core.ZRepository;
+import com.vo.repository.enums.DMLEnum;
 
 /**
  *
