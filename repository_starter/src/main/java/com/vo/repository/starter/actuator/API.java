@@ -1,14 +1,16 @@
-package com.vo.actuator;
+package com.vo.repository.starter.actuator;
 
 import java.util.List;
 
-import com.vo.ZRWrapper;
 import com.vo.anno.ZAutowired;
 import com.vo.anno.ZController;
-import com.vo.core.Page;
 import com.vo.core.ZResponse;
 import com.vo.http.ZRequestMapping;
 import com.vo.http.ZRequestParam;
+import com.vo.repository.actuator.SqlInvocationLogsEntity;
+import com.vo.repository.actuator.SqlInvocationLogsRepository;
+import com.vo.repository.core.Page;
+import com.vo.repository.core.ZRWrapper;
 import com.vo.template.ZModel;
 
 /**

@@ -1,24 +1,24 @@
-package com.vo.actuator;
+package com.vo.repository.starter.actuator;
 
 import com.vo.anno.ZConfigurationProperties;
 
 /**
- * 
+ *
  * 配置管理员用户信息
- * 
+ *
  * @author zhangzhen
  * @date 2025年8月25日
- * 
+ *
  */
 @ZConfigurationProperties(prefix = "repository.actuator")
 public class AdminConfigurationProperties {
-	
+
 //	@ZNotEmtpy
 	private String userName;
-	
+
 //	@ZNotEmtpy
 	private String password;
-	
+
 	// FIXME 2025年8月25日 下午6:02:31 zhangzhen: 加一个过期时间，比如1个小时
 
 	public String getUserName() {
@@ -36,6 +36,6 @@ public class AdminConfigurationProperties {
 	public void setPassword(final String password) {
 		this.password = password;
 	}
-	
+
 
 }
