@@ -1,4 +1,4 @@
-package com.vo.actuator;
+package com.vo.repository.starter.actuator;
 
 import javax.annotation.sql.DataSourceDefinition;
 
@@ -25,18 +25,18 @@ public class AdminConfigurationProperties {
 	// FIXME 2025年8月25日 下午6:02:31 zhangzhen: 加一个过期时间，比如1个小时
 
 	public String getUserName() {
-		return userName;
+		return this.userName;
 	}
 
-	public void setUserName(String userName) {
+	public void setUserName(final String userName) {
 		this.userName = userName;
 	}
 
 	public String getPassword() {
-		return password;
-	}
+		return this.password;
+	} 
 
-	public void setPassword(String password) {
+	public void setPassword(final String password) {
 		this.password = password;
 	}
 	

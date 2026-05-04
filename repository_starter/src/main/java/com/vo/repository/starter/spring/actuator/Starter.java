@@ -1,4 +1,4 @@
-package com.vo.spring.starter;
+package com.vo.repository.starter.spring.actuator;
 
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;

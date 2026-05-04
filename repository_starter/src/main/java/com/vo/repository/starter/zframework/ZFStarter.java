@@ -1,19 +1,19 @@
-package com.vo.zframework.starter;
+package com.vo.repository.starter.zframework;
 
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
-import com.vo.ScanPackage;
-import com.vo.actuator.SqlInvocationLogsConfigurationProperties;
 import com.vo.configuration.ZProperties;
-import com.vo.conn.Env;
-import com.vo.conn.EnvEnum;
 import com.vo.core.ZClass;
 import com.vo.core.ZContext;
 import com.vo.exception.StartupException;
-import com.vo.spring.starter.ZRepositoryStarter;
+import com.vo.repository.actuator.SqlInvocationLogsConfigurationProperties;
+import com.vo.repository.conn.Env;
+import com.vo.repository.conn.EnvEnum;
+import com.vo.repository.core.ScanPackage;
+import com.vo.repository.starter.spring.actuator.ZRepositoryStarter;
 import com.vo.starter.ZStarter;
 
 /**
@@ -31,7 +31,7 @@ public class ZFStarter implements ZStarter {
 	public void start() {
 
 		Env.ENV = EnvEnum.ZFRAMEWORK;
-		
+
 		final Object scanPackageNameObject = ZProperties.getInstance().getProperty(SCAN_PACKAGE_NAME);
 
 		if (scanPackageNameObject == null) {

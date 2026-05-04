@@ -6,4 +6,4 @@
  * @date 2024年5月31日 下午2:11:40
  * 
  */
-package com.vo.zframework.starter;
+package com.vo.repository.starter.zframework;
