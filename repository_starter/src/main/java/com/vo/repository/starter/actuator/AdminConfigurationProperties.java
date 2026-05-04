@@ -2,8 +2,8 @@ package com.vo.repository.starter.actuator;
 
 import javax.annotation.sql.DataSourceDefinition;
 
-import com.vo.anno.ZConfigurationProperties;
-import com.vo.validator.ZNotEmtpy;
+import com.vo.zframework.anno.ZConfigurationProperties;
+import com.vo.zframework.validator.ZNotEmtpy;
 
 /**
  * 

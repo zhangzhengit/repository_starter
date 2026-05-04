@@ -14,7 +14,6 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Sets;
-import com.vo.cache.CU;
 import com.vo.core.ZClass;
 import com.vo.log.core.ZLog2;
 import com.vo.repository.anno.ZQuery;
@@ -27,6 +26,7 @@ import com.vo.repository.core.ZEntityHandlerScanner;
 import com.vo.repository.core.ZRSqlMap;
 import com.vo.repository.core.ZRepository;
 import com.vo.repository.enums.DMLEnum;
+import com.vo.zframework.cache.CU;
 
 /**
  *
