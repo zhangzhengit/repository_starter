@@ -1,6 +1,6 @@
 package com.vo.repository.starter.actuator;
 
-import com.vo.anno.ZConfigurationProperties;
+import com.vo.zframework.anno.ZConfigurationProperties;
 
 /**
  *
