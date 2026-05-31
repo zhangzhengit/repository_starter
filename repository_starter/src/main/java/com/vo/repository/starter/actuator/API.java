@@ -2,16 +2,16 @@ package com.vo.repository.starter.actuator;
 
 import java.util.List;
 
-import com.vo.repository.actuator.SqlInvocationLogsEntity;
-import com.vo.repository.actuator.SqlInvocationLogsRepository;
-import com.vo.repository.core.Page;
-import com.vo.repository.core.ZRWrapper;
-import com.vo.zframework.anno.ZAutowired;
-import com.vo.zframework.anno.ZController;
-import com.vo.zframework.core.ZResponse;
-import com.vo.zframework.http.ZRequestMapping;
-import com.vo.zframework.http.ZRequestParam;
-import com.vo.zframework.template.ZModel;
+import vo.repository.actuator.SqlInvocationLogsEntity;
+import vo.repository.actuator.SqlInvocationLogsRepository;
+import vo.repository.core.Page;
+import vo.repository.core.ZRWrapper;
+import vo.zframework.anno.ZAutowired;
+import vo.zframework.anno.ZController;
+import vo.zframework.core.ZResponse;
+import vo.zframework.http.ZRequestMapping;
+import vo.zframework.http.ZRequestParam;
+import vo.zframework.template.ZModel;
 
 /**
  *	监控器相关接口，用于查看SQL执行相关信息

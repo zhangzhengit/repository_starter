@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.vo</groupId>
+	<groupId>vo</groupId>
 	<artifactId>repository_starter</artifactId>
 	<version>1.0.0-SNAPSHOT-jdk21</version>
 	<name>repository_starter</name>
@@ -23,13 +23,13 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.vo</groupId>
+			<groupId>vo</groupId>
 			<artifactId>sb_zrepository</artifactId>
 			<version>1.0.0-SNAPSHOT-jdk21</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.vo</groupId>
+			<groupId>vo</groupId>
 			<artifactId>zframework_core</artifactId>
 			<version>1.0.0-SNAPSHOT-jdk21</version>
 		</dependency>

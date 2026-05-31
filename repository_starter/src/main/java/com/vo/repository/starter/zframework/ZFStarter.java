@@ -1,20 +1,22 @@
 package com.vo.repository.starter.zframework;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
-import com.vo.core.ZClass;
-import com.vo.repository.actuator.SqlInvocationLogsConfigurationProperties;
-import com.vo.repository.conn.Env;
-import com.vo.repository.conn.EnvEnum;
-import com.vo.repository.core.ScanPackage;
 import com.vo.repository.starter.spring.actuator.ZRepositoryStarter;
-import com.vo.zframework.configuration.ZProperties;
-import com.vo.zframework.core.ZContext;
-import com.vo.zframework.exception.StartupException;
-import com.vo.zframework.starter.ZStarter;
+
+import vo.repository.actuator.SqlInvocationLogsConfigurationProperties;
+import vo.repository.conn.Env;
+import vo.repository.conn.EnvEnum;
+import vo.repository.core.ScanPackage;
+import vo.zframework.configuration.ZProperties;
+import vo.zframework.core.ZContext;
+import vo.zframework.exception.StartupException;
+import vo.zframework.starter.ZStarter;
+import vo.zframework.zclass.ZClass;
 
 /**
  * 通过 zframework.factories 指定的启动类
@@ -38,9 +40,17 @@ public class ZFStarter implements ZStarter {
 			throw new StartupException("[" + SCAN_PACKAGE_NAME + "]未配置,请先配置[" + SCAN_PACKAGE_NAME + "]");
 		}
 
-		ScanPackage.set(Sets.newHashSet(String.valueOf(scanPackageNameObject)));
+		final String ns = String.valueOf(scanPackageNameObject);
+		final String[] a = ns.split(",");
 
-		final Map<Class, ZClass> clsMap = ZRepositoryStarter.startZRepository(String.valueOf(scanPackageNameObject));
+		ScanPackage.set(Sets.newHashSet(a));
+
+		final Map<Class, ZClass> clsMap = new HashMap<>();
+		for (final String pn : a) {
+			final Map<Class, ZClass> clsMapx = ZRepositoryStarter.startZRepository(pn);
+			clsMap.putAll(clsMapx);
+		}
+
 		final Set<Entry<Class, ZClass>> es = clsMap.entrySet();
 		for (final Entry<Class, ZClass> entry : es) {
 			ZContext.addBean(entry.getKey(), entry.getValue().newInstance());

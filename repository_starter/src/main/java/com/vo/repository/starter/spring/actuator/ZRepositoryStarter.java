@@ -14,19 +14,20 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Sets;
-import com.vo.core.ZClass;
-import com.vo.log.core.ZLog2;
-import com.vo.repository.anno.ZQuery;
-import com.vo.repository.conn.Env;
-import com.vo.repository.conn.EnvEnum;
-import com.vo.repository.conn.ZRepositoryMain;
-import com.vo.repository.core.ScanPackage;
-import com.vo.repository.core.SqlResult;
-import com.vo.repository.core.ZEntityHandlerScanner;
-import com.vo.repository.core.ZRSqlMap;
-import com.vo.repository.core.ZRepository;
-import com.vo.repository.enums.DMLEnum;
-import com.vo.zframework.cache.CU;
+
+import vo.log.core.ZLog2;
+import vo.repository.anno.ZQuery;
+import vo.repository.conn.Env;
+import vo.repository.conn.EnvEnum;
+import vo.repository.conn.ZRepositoryMain;
+import vo.repository.core.ScanPackage;
+import vo.repository.core.SqlResult;
+import vo.repository.core.ZEntityHandlerScanner;
+import vo.repository.core.ZRSqlMap;
+import vo.repository.core.ZRepository;
+import vo.repository.enums.DMLEnum;
+import vo.zframework.cache.CU;
+import vo.zframework.zclass.ZClass;
 
 /**
  *
