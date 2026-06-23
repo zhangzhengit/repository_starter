@@ -26,7 +26,7 @@ import vo.repository.core.ZEntityHandlerScanner;
 import vo.repository.core.ZRSqlMap;
 import vo.repository.core.ZRepository;
 import vo.repository.enums.DMLEnum;
-import vo.zframework.cache.CU;
+import vo.zframework.common.CU;
 import vo.zframework.zclass.ZClass;
 
 /**

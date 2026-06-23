@@ -3,11 +3,11 @@ package com.vo.repository.starter.actuator;
 import vo.zframework.anno.ZComponent;
 import vo.zframework.anno.ZOrder;
 import vo.zframework.aop.InterceptorParameter;
-import vo.zframework.core.ContentTypeEnum;
-import vo.zframework.core.ZRequest;
-import vo.zframework.core.ZResponse;
-import vo.zframework.http.HttpStatusEnum;
+import vo.zframework.enums.ContentTypeEnum;
+import vo.zframework.enums.HttpStatusEnum;
 import vo.zframework.http.ZCookie;
+import vo.zframework.http.ZRequest;
+import vo.zframework.http.ZResponse;
 import vo.zframework.scanner.ZHandlerInterceptor;
 
 /**

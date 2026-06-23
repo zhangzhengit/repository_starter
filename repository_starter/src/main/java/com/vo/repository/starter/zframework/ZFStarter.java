@@ -12,7 +12,7 @@ import vo.repository.actuator.SqlInvocationLogsConfigurationProperties;
 import vo.repository.conn.Env;
 import vo.repository.conn.EnvEnum;
 import vo.repository.core.ScanPackage;
-import vo.zframework.configuration.ZProperties;
+import vo.zframework.ZProperties;
 import vo.zframework.core.ZContext;
 import vo.zframework.exception.StartupException;
 import vo.zframework.starter.ZStarter;
