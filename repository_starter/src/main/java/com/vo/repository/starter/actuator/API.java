@@ -9,8 +9,8 @@ import vo.repository.core.ZRWrapper;
 import vo.zframework.anno.ZAutowired;
 import vo.zframework.anno.ZController;
 import vo.zframework.anno.ZRequestMapping;
-import vo.zframework.http.ZRequestParam;
-import vo.zframework.http.ZResponse;
+import vo.zframework.http.request.ZRequestParam;
+import vo.zframework.http.response.ZResponse;
 import vo.zframework.template.ZModel;
 
 /**

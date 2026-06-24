@@ -6,8 +6,8 @@ import vo.zframework.aop.InterceptorParameter;
 import vo.zframework.enums.ContentTypeEnum;
 import vo.zframework.enums.HttpStatusEnum;
 import vo.zframework.http.ZCookie;
-import vo.zframework.http.ZRequest;
-import vo.zframework.http.ZResponse;
+import vo.zframework.http.request.ZRequest;
+import vo.zframework.http.response.ZResponse;
 import vo.zframework.scanner.ZHandlerInterceptor;
 
 /**
