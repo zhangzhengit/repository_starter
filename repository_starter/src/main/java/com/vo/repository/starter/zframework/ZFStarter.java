@@ -12,11 +12,11 @@ import vo.repository.actuator.SqlInvocationLogsConfigurationProperties;
 import vo.repository.conn.Env;
 import vo.repository.conn.EnvEnum;
 import vo.repository.core.ScanPackage;
-import vo.zframework.ZProperties;
-import vo.zframework.core.ZContext;
-import vo.zframework.exception.StartupException;
-import vo.zframework.starter.ZStarter;
-import vo.zframework.zclass.ZClass;
+import vo.vortex.ZProperties;
+import vo.vortex.core.ZContext;
+import vo.vortex.exception.StartupException;
+import vo.vortex.starter.ZStarter;
+import vo.vortex.zclass.ZClass;
 
 /**
  * 通过 zframework.factories 指定的启动类

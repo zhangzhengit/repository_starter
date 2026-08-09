@@ -6,12 +6,12 @@ import vo.repository.actuator.SqlInvocationLogsEntity;
 import vo.repository.actuator.SqlInvocationLogsRepository;
 import vo.repository.core.Page;
 import vo.repository.core.ZRWrapper;
-import vo.zframework.anno.ZAutowired;
-import vo.zframework.anno.ZController;
-import vo.zframework.anno.ZRequestMapping;
-import vo.zframework.http.request.ZRequestParam;
-import vo.zframework.http.response.ZResponse;
-import vo.zframework.template.ZModel;
+import vo.vortex.anno.ZAutowired;
+import vo.vortex.anno.ZController;
+import vo.vortex.anno.ZRequestMapping;
+import vo.vortex.http.request.ZRequestParam;
+import vo.vortex.http.response.ZResponse;
+import vo.vortex.template.ZModel;
 
 /**
  *	监控器相关接口，用于查看SQL执行相关信息

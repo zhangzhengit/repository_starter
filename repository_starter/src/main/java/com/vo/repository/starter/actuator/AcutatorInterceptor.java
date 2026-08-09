@@ -1,14 +1,14 @@
 package com.vo.repository.starter.actuator;
 
-import vo.zframework.anno.ZComponent;
-import vo.zframework.anno.ZOrder;
-import vo.zframework.aop.InterceptorParameter;
-import vo.zframework.enums.ContentTypeEnum;
-import vo.zframework.enums.HttpStatusEnum;
-import vo.zframework.http.ZCookie;
-import vo.zframework.http.request.ZRequest;
-import vo.zframework.http.response.ZResponse;
-import vo.zframework.scanner.ZHandlerInterceptor;
+import vo.vortex.anno.ZComponent;
+import vo.vortex.anno.ZOrder;
+import vo.vortex.aop.InterceptorParameter;
+import vo.vortex.enums.ContentTypeEnum;
+import vo.vortex.enums.HttpStatusEnum;
+import vo.vortex.http.ZCookie;
+import vo.vortex.http.request.ZRequest;
+import vo.vortex.http.response.ZResponse;
+import vo.vortex.scanner.ZHandlerInterceptor;
 
 /**
  * 监控器相关接口的权限校验拦截器

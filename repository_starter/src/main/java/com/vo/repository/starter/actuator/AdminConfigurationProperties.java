@@ -1,6 +1,6 @@
 package com.vo.repository.starter.actuator;
 
-import vo.zframework.configuration.properties.ZConfigurationProperties;
+import vo.vortex.configuration.properties.ZConfigurationProperties;
 
 /**
  *
