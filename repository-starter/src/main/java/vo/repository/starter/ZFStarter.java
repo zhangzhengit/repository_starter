@@ -1,15 +1,15 @@
-package com.vo.repository.starter.zframework;
+package vo.repository.starter;
 
 import java.util.Map;
 import java.util.Map.Entry;
 
 import com.google.common.collect.Sets;
-import com.vo.repository.starter.spring.actuator.ZRepositoryStarter;
 
 import vo.repository.actuator.SqlInvocationLogsConfigurationProperties;
 import vo.repository.conn.Env;
 import vo.repository.conn.EnvEnum;
 import vo.repository.core.ScanPackage;
+import vo.repository.starter.spring.actuator.ZRepositoryStarter;
 import vo.vortex.ZProperties;
 import vo.vortex.core.ZContext;
 import vo.vortex.exception.StartupException;

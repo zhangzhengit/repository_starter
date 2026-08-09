@@ -1,4 +1,4 @@
-package com.vo.repository.starter.actuator;
+package vo.repository.starter.actuator;
 
 import vo.vortex.anno.ZComponent;
 import vo.vortex.anno.ZOrder;

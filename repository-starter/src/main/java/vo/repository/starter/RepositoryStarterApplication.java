@@ -1,4 +1,4 @@
-package com.vo.repository.starter;
+package vo.repository.starter;
 
 /**
  *
