@@ -1,9 +1,7 @@
 package com.vo.repository.starter.zframework;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 
 import com.google.common.collect.Sets;
 import com.vo.repository.starter.spring.actuator.ZRepositoryStarter;
@@ -41,18 +39,13 @@ public class ZFStarter implements ZStarter {
 		}
 
 		final String ns = String.valueOf(scanPackageNameObject);
-		final String[] a = ns.split(",");
+		final String[] pas = ns.split(",");
 
-		ScanPackage.set(Sets.newHashSet(a));
+		ScanPackage.set(Sets.newHashSet(pas));
 
-		final Map<Class, ZClass> clsMap = new HashMap<>();
-		for (final String pn : a) {
-			final Map<Class, ZClass> clsMapx = ZRepositoryStarter.startZRepository(pn);
-			clsMap.putAll(clsMapx);
-		}
+		final Map<Class, ZClass> clsMap = ZRepositoryStarter.startZRepository(pas);
 
-		final Set<Entry<Class, ZClass>> es = clsMap.entrySet();
-		for (final Entry<Class, ZClass> entry : es) {
+		for (final Entry<Class, ZClass> entry : clsMap.entrySet()) {
 			ZContext.addBean(entry.getKey(), entry.getValue().newInstance());
 		}
 

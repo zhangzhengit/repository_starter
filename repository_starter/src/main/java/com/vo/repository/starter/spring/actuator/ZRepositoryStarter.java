@@ -1,6 +1,7 @@
 package com.vo.repository.starter.spring.actuator;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -78,36 +79,33 @@ public class ZRepositoryStarter implements InstantiationAwareBeanPostProcessor {
 
 	private static void gZRepository(final String... packageName) {
 
-		for (final String p : packageName) {
+		final Map<Class, ZClass> clsMap = startZRepository(packageName);
+		final Set<Entry<Class, ZClass>> es = clsMap.entrySet();
+		for (final Entry<Class, ZClass> entry : es) {
 
-			final Map<Class, ZClass> clsMap = startZRepository(p);
-			final Set<Entry<Class, ZClass>> es = clsMap.entrySet();
-			for (final Entry<Class, ZClass> entry : es) {
-
-				LOG.info("开始注入实现类[{}]", entry.getValue().getName());
-				BFPP.beanFactory.registerSingleton(entry.getKey().getName(), entry.getValue().newInstance());
-				LOG.info("注入实现类[{}]成功", entry.getValue().getName());
-			}
+			LOG.info("开始注入实现类[{}]", entry.getValue().getName());
+			BFPP.beanFactory.registerSingleton(entry.getKey().getName(), entry.getValue().newInstance());
+			LOG.info("注入实现类[{}]成功", entry.getValue().getName());
 		}
 	}
 
 	/**
 	 * 启动ZRepository程序，扫描 ZRepository 子接口并且生成代理类
+	 * @param pas
 	 *
-	 * @param packageName
 	 * @return 返回<ZRepository的子接口的Class,生成的ZRepository的子接口的ZClass代理类>
 	 *
 	 */
-	public static Map<Class, ZClass> startZRepository(final String packageName) {
-		ScanPackage.set(Sets.newHashSet(packageName));
+	public static Map<Class, ZClass> startZRepository(final String... pas) {
+		ScanPackage.set(Sets.newHashSet(pas));
 
-		LOG.info("ZRepositoryStarter启动,packageName=[{}]", packageName);
+		LOG.info("ZRepositoryStarter启动,packageName=[{}]", Arrays.toString(pas));
 
-		ZEntityHandlerScanner.scan(packageName);
+		ZEntityHandlerScanner.scan(pas);
 
 		LOG.info("ZRepositoryStarter开始扫描[{}]的子接口", ZRepository.class.getCanonicalName());
 		// 1 查找ZRepository的子接口
-		final Set<Class<?>> zrSubinterfaceSet = ZRepositoryMain.scanZRepositorySubinterface(packageName);
+		final Set<Class<?>> zrSubinterfaceSet = ZRepositoryMain.scanZRepositorySubinterface(pas);
 		if (CU.isEmpty(zrSubinterfaceSet)) {
 			LOG.info("ZRepositoryStarter没有[{}]的子接口", ZRepository.class.getCanonicalName());
 			return Collections.emptyMap();
