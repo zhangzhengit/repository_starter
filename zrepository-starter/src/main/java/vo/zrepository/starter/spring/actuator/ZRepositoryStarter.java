@@ -1,4 +1,4 @@
-package vo.repository.starter.spring.actuator;
+package vo.zrepository.starter.spring.actuator;
 
 import java.lang.reflect.Method;
 import java.time.LocalDateTime;
@@ -11,25 +11,28 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Sets;
 
 import vo.log.core.ZLog2;
-import vo.repository.anno.ZQuery;
-import vo.repository.conn.Env;
-import vo.repository.conn.EnvEnum;
-import vo.repository.conn.ZRepositoryMain;
-import vo.repository.core.ScanPackage;
-import vo.repository.core.SqlResult;
-import vo.repository.core.ZEntityHandlerScanner;
-import vo.repository.core.ZRSqlMap;
-import vo.repository.core.ZRepository;
-import vo.repository.enums.DMLEnum;
 import vo.vortex.common.CU;
 import vo.vortex.zclass.ZClass;
+import vo.zrepository.anno.ZQuery;
+import vo.zrepository.conn.Env;
+import vo.zrepository.conn.EnvEnum;
+import vo.zrepository.conn.ZRepositoryMain;
+import vo.zrepository.core.ScanPackage;
+import vo.zrepository.core.SqlResult;
+import vo.zrepository.core.ZEntityHandlerScanner;
+import vo.zrepository.core.ZRSqlMap;
+import vo.zrepository.core.ZRepository;
+import vo.zrepository.enums.DMLEnum;
 
 /**
  *
@@ -54,12 +57,15 @@ public class ZRepositoryStarter implements InstantiationAwareBeanPostProcessor {
 	@Value(value = "${repository.actuator.enable:false}")
 	private boolean actuatorEnable;
 
+	@Autowired
+	private ConfigurableApplicationContext applicationContext;
+
 	@Override
 	public boolean postProcessAfterInstantiation(final Object bean, final String beanName) throws BeansException {
 		System.out.println(LocalDateTime.now() + "\t" + Thread.currentThread().getName() + "\t"
 				+ "ZRepositoryStarter.postProcessAfterInstantiation()");
-		
-		
+
+
 		Env.ENV = EnvEnum.SPRING;
 		Env.ACTUATOR_ENABLE = this.actuatorEnable;
 
@@ -74,21 +80,23 @@ public class ZRepositoryStarter implements InstantiationAwareBeanPostProcessor {
 			ScanPackage.set(this.scanPackageName);
 			final String[] array = this.scanPackageName.toArray(new String[0]);
 
-			ZRepositoryStarter.gZRepository(array);
+			this.gZRepository(array);
 			this.gZRepository.set(true);
 		}
 
 		return InstantiationAwareBeanPostProcessor.super.postProcessAfterInstantiation(bean, beanName);
 	}
 
-	private static void gZRepository(final String... packageName) {
+	private void gZRepository(final String... packageName) {
 
 		final Map<Class, ZClass> clsMap = startZRepository(packageName);
 		final Set<Entry<Class, ZClass>> es = clsMap.entrySet();
 		for (final Entry<Class, ZClass> entry : es) {
 
+			final ConfigurableListableBeanFactory beanFactory = this.applicationContext.getBeanFactory();
+
 			LOG.info("开始注入实现类[{}]", entry.getValue().getName());
-			BFPP.beanFactory.registerSingleton(entry.getKey().getName(), entry.getValue().newInstance());
+			beanFactory.registerSingleton(entry.getKey().getName(), entry.getValue().newInstance());
 			LOG.info("注入实现类[{}]成功", entry.getValue().getName());
 		}
 	}

@@ -5,4 +5,4 @@
  * @date 2024年6月1日 下午7:47:32
  * 
  */
-package vo.repository.starter.actuator;
+package vo.zrepository.starter.actuator;

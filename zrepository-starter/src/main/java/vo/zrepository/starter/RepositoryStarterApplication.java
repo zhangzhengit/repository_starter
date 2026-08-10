@@ -1,4 +1,4 @@
-package vo.repository.starter;
+package vo.zrepository.starter;
 
 /**
  *
