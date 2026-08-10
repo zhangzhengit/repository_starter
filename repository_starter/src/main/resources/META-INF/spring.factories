@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-	com.vo.repository.starter.spring.actuator.Starter
+	vo.zrepository.starter.spring.actuator.Starter

@@ -9,11 +9,11 @@
 		<version>2.6.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.vo</groupId>
-	<artifactId>repository_starter</artifactId>
+	<groupId>vo</groupId>
+	<artifactId>zrepository-starter</artifactId>
 	<version>1.0.0-SNAPSHOT-jdk8</version>
-	<name>repository_starter</name>
-	<description>repository_starter</description>
+	<name>zrepository-starter</name>
+	<description>zrepository-starter</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -22,14 +22,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.vo</groupId>
-			<artifactId>sb_zrepository</artifactId>
-			<version>1.0.0-SNAPSHOT-jdk8</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.vo</groupId>
-			<artifactId>zframework_core</artifactId>
+			<groupId>vo</groupId>
+			<artifactId>zrepository</artifactId>
 			<version>1.0.0-SNAPSHOT-jdk8</version>
 		</dependency>
 

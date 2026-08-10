@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+	vo.repository.starter.spring.actuator.Starter
