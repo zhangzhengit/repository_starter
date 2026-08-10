@@ -1,7 +1,6 @@
 package vo.zrepository.starter.spring.actuator;
 
 import java.lang.reflect.Method;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -62,9 +61,6 @@ public class ZRepositoryStarter implements InstantiationAwareBeanPostProcessor {
 
 	@Override
 	public boolean postProcessAfterInstantiation(final Object bean, final String beanName) throws BeansException {
-		System.out.println(LocalDateTime.now() + "\t" + Thread.currentThread().getName() + "\t"
-				+ "ZRepositoryStarter.postProcessAfterInstantiation()");
-
 
 		Env.ENV = EnvEnum.SPRING;
 		Env.ACTUATOR_ENABLE = this.actuatorEnable;
