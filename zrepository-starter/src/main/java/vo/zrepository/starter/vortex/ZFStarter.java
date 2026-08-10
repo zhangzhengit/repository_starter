@@ -17,7 +17,7 @@ import vo.zrepository.core.ScanPackage;
 import vo.zrepository.starter.spring.actuator.ZRepositoryStarter;
 
 /**
- * 通过 zframework.factories 指定的启动类
+ * 通过 vortex.factories 指定的启动类
  *
  * @author zhangzhen
  * @date 2024年2月17日
