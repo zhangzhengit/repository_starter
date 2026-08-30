@@ -23,15 +23,15 @@ import vo.log.core.ZLog2;
 import vo.vortex.common.CU;
 import vo.vortex.zclass.ZClass;
 import vo.zrepository.anno.ZQuery;
-import vo.zrepository.conn.Env;
-import vo.zrepository.conn.EnvEnum;
 import vo.zrepository.conn.ZRepositoryMain;
+import vo.zrepository.core.Env;
 import vo.zrepository.core.ScanPackage;
 import vo.zrepository.core.SqlResult;
 import vo.zrepository.core.ZEntityHandlerScanner;
 import vo.zrepository.core.ZRSqlMap;
 import vo.zrepository.core.ZRepository;
 import vo.zrepository.enums.DMLEnum;
+import vo.zrepository.enums.EnvEnum;
 
 /**
  *

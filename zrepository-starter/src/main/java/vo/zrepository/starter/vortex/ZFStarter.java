@@ -11,9 +11,9 @@ import vo.vortex.exception.StartupException;
 import vo.vortex.starter.ZStarter;
 import vo.vortex.zclass.ZClass;
 import vo.zrepository.actuator.SqlInvocationLogsConfigurationProperties;
-import vo.zrepository.conn.Env;
-import vo.zrepository.conn.EnvEnum;
+import vo.zrepository.core.Env;
 import vo.zrepository.core.ScanPackage;
+import vo.zrepository.enums.EnvEnum;
 import vo.zrepository.starter.spring.actuator.ZRepositoryStarter;
 
 /**
